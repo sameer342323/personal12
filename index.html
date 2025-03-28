@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Love</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i data-lucide="heart" class="h-8 w-8 text-rose-600 animate-pulse"></i>
+            <span class="ml-2 text-xl font-bold text-gray-800">My Love</span>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="home" class="h-5 w-5 inline-block mr-1"></i>
+            Home
+          </a>
+          <a href="gallery.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="image" class="h-5 w-5 inline-block mr-1"></i>
+            Gallery
+          </a>
+          <a href="letter.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="mail" class="h-5 w-5 inline-block mr-1"></i>
+            Love Letter
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button
+            onclick="toggleMenu()"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
+          >
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="index.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="home" class="h-5 w-5 inline-block mr-1"></i>
+          Home
+        </a>
+        <a
+          href="gallery.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="image" class="h-5 w-5 inline-block mr-1"></i>
+          Gallery
+        </a>
+        <a
+          href="letter.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="mail" class="h-5 w-5 inline-block mr-1"></i>
+          Love Letter
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-rose-50">
+    <div class="relative isolate px-6 pt-14 lg:px-8">
+      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div class="text-center">
+          <i data-lucide="heart" class="h-16 w-16 text-rose-600 mx-auto animate-pulse"></i>
+          <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            For My Special One
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Every moment with you is a blessing, and I want to show you just how special you are to me.
+            Let's start with a little game - are you feeling lucky today?
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a
+              href="lucky-draw.html"
+              class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
+            >
+              Try Your Luck 
+              <i data-lucide="arrow-right" class="ml-2 h-4 w-4 inline"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+    lucide.createIcons();
+  </script>
+</body>
+</html>

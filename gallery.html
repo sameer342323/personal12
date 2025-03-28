@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - My Love</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+  </style>
+</head>
+<body class="bg-rose-50">
+  <nav class="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i data-lucide="heart" class="h-8 w-8 text-rose-600 animate-pulse"></i>
+            <span class="ml-2 text-xl font-bold text-gray-800">My Love</span>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="home" class="h-5 w-5 inline-block mr-1"></i>
+            Home
+          </a>
+          <a href="gallery.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="image" class="h-5 w-5 inline-block mr-1"></i>
+            Gallery
+          </a>
+          <a href="letter.html" class="text-gray-600 hover:text-rose-600 px-3 py-2 rounded-md text-sm font-medium">
+            <i data-lucide="mail" class="h-5 w-5 inline-block mr-1"></i>
+            Love Letter
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button
+            onclick="toggleMenu()"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
+          >
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="index.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="home" class="h-5 w-5 inline-block mr-1"></i>
+          Home
+        </a>
+        <a
+          href="gallery.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="image" class="h-5 w-5 inline-block mr-1"></i>
+          Gallery
+        </a>
+        <a
+          href="letter.html"
+          class="text-gray-600 hover:text-rose-600 block px-3 py-2 rounded-md text-base font-medium"
+        >
+          <i data-lucide="mail" class="h-5 w-5 inline-block mr-1"></i>
+          Love Letter
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-rose-50 py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <i data-lucide="heart" class="h-12 w-12 text-rose-600 mx-auto animate-pulse"></i>
+        <h2 class="mt-2 text-3xl font-bold text-gray-900">Our Memories</h2>
+        <p class="mt-4 text-gray-600">Every moment with you is worth capturing</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Our First Date"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Our First Date</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Sunset Memories"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Sunset Memories</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1501901609772-df0848060b33?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Beautiful Moments"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Beautiful Moments</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Sweet Times"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Sweet Times</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Together Forever"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Together Forever</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img
+            src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+            alt="Love Story"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <p class="text-gray-800 font-medium text-center">Love Story</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+    lucide.createIcons();
+  </script>
+</body>
+</html>
