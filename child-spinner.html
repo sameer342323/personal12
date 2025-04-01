@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Draw - Love Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Spinner container styles */
+        #spinner-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fff0f6;
+            position: relative;
+        }
+
+        #spin-btn {
+            background-color: #e11d48;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        #spin-btn:hover {
+            background-color: #be123c;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #be123c;
+        }
+
+        #spinner {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .spinner-border {
+            border: 10px solid rgba(225, 29, 72, 0.2);
+            border-top: 10px solid #e11d48;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .heart {
+            position: absolute;
+            color: #e11d48;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-50px) scale(1.2); opacity: 0.6; }
+            100% { transform: translateY(-100px) scale(1.4); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Lucky draw spinner container -->
+    <div id="spinner-container">
+        <h2 class="text-2xl font-bold text-gray-800">How many children do you want?</h2>
+        <input id="children-input" type="number" placeholder="Enter number of children" class="mt-4 p-2 border rounded text-center">
+        <button id="spin-btn" class="mt-4">Spin!</button>
+        <p id="result"></p>
+        <div class="mt-6 text-center">
+            <a href="index.html" class="text-rose-600 hover:text-rose-700 text-sm font-medium">
+              Back to Home
+            </a>
+          </div>
+        <div id="spinner" style="display:none;">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Get elements
+        const spinBtn = document.getElementById('spin-btn');
+        const resultElement = document.getElementById('result');
+        const spinnerElement = document.getElementById('spinner');
+        const childrenInput = document.getElementById('children-input');
+        const spinnerContainer = document.getElementById('spinner-container');
+
+        // Function to create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            spinnerContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        // Add event listener to spin button
+        spinBtn.addEventListener('click', () => {
+            // Get user input
+            const children = parseInt(childrenInput.value);
+
+            // Validate input
+            if (isNaN(children) || children <= 0) {
+                resultElement.textContent = 'Please enter a valid number of children!';
+                return;
+            }
+
+            // Show spinner
+            spinnerElement.style.display = 'flex';
+            resultElement.textContent = '';
+            
+            // Generate floating hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createHeart, i * 300);
+            }
+
+            // Simulate a delay
+            setTimeout(() => {
+                // Hide spinner
+                spinnerElement.style.display = 'none';
+
+                // Generate a random number
+                const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+                // Show result
+                if (randomNumber <= children) {
+                    resultElement.textContent = `Congratulations! You're lucky! You got ${children} children! ❤️`;
+                } else {
+                    resultElement.textContent = `Sorry, you're not lucky this time! You didn't get ${children} children. 😔`;
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
